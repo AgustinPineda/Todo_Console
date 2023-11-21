@@ -19,7 +19,8 @@ void Todo_List::get_new_item()
 	init();
 	std::string item;
 	std::cout << "New Task: ";
-	std::cin >> item;
+	//std::cin.get();
+	std::getline(std::cin, item);
 	add_item(item);
 	init();
 }
@@ -28,8 +29,14 @@ void Todo_List::user_remove_item()
 {
 	init();
 	int n;
-	std::cout << "Index of item to remove: ";
+	std::cout << "# of item to remove: ";
 	std::cin >> n;
+	if ( n < 1 || list.size() < n )
+	{
+		init();
+		std::cout << "That task doesn't exist!\n";
+		return;
+	}
 	remove_item(n - 1);
 	init();
 }
@@ -38,6 +45,7 @@ void Todo_List::init()
 {
 	ClearScreen();
 	print();
+	std::cout << "\n";
 }
 
 void Todo_List::add_item(std::string item)

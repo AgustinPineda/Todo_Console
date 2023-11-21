@@ -7,3 +7,5 @@
 void ClearScreen();
 
 std::string GetUserCommand();
+
+void PrintHelp();

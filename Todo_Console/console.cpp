@@ -41,6 +41,17 @@ std::string GetUserCommand()
 {
     std::string command;
     std::cout << "Enter Command: ";
-    std::cin >> command;
+    std::getline(std::cin, command);
     return(command);
+}
+
+void PrintHelp()
+{
+    std::cout << "Keep track of your tasks in this simple console app \n\n";
+    std::cout << "Commands:\n";
+    std::cout << "help - See a list of commands and instructions.\n";
+    std::cout << "new - Add a new task.\n";
+    std::cout << "remove - Remove a finished or unneeded task by number.\n";
+    std::cout << "exit - Exit the program.\n";
+    std::cout << "\n";
 }
