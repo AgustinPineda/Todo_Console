@@ -16,17 +16,28 @@ void Todo_List::print()
 
 void Todo_List::get_new_item()
 {
+	init();
 	std::string item;
 	std::cout << "New Task: ";
 	std::cin >> item;
 	add_item(item);
-	ClearScreen();
-	print();
+	init();
 }
 
-void Todo_List::user_delete_item(int n)
+void Todo_List::user_remove_item()
 {
+	init();
+	int n;
+	std::cout << "Index of item to remove: ";
+	std::cin >> n;
 	remove_item(n - 1);
+	init();
+}
+
+void Todo_List::init()
+{
+	ClearScreen();
+	print();
 }
 
 void Todo_List::add_item(std::string item)
@@ -36,5 +47,5 @@ void Todo_List::add_item(std::string item)
 
 void Todo_List::remove_item(int n)
 {
-	list.pop_back();
+	list.erase(list.begin() + n);
 }
